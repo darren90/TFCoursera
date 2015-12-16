@@ -163,11 +163,11 @@
 		89D5C9E11C21442600637DFC /* Hopper */ = {
 			isa = PBXGroup;
 			children = (
+				89D5C9E51C21444F00637DFC /* UICollectionViewLeftAlignedLayout.h */,
+				89D5C9E61C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m */,
 				89D5C9EB1C21451100637DFC /* WaterCell.h */,
 				89D5C9EC1C21451100637DFC /* WaterCell.m */,
 				89D5C9ED1C21451100637DFC /* WaterCell.xib */,
-				89D5C9E51C21444F00637DFC /* UICollectionViewLeftAlignedLayout.h */,
-				89D5C9E61C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m */,
 				89D5C9E21C21443000637DFC /* HopperHeaderView.h */,
 				89D5C9E31C21443000637DFC /* HopperHeaderView.m */,
 				89D5C9E81C2144C700637DFC /* CollectionViewCell.h */,
@@ -542,6 +542,7 @@
 				89D5C9D71C210F5F00637DFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89D5C9D81C210F5F00637DFC /* Build configuration list for PBXNativeTarget "TFCourseraTests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +551,7 @@
 				89D5C9DA1C210F5F00637DFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		89D5C9DB1C210F5F00637DFC /* Build configuration list for PBXNativeTarget "TFCourseraUITests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +560,7 @@
 				89D5C9DD1C210F5F00637DFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
