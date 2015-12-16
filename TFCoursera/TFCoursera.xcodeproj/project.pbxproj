@@ -16,6 +16,11 @@
 		89D5C9C61C210F5F00637DFC /* TFCourseraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9C51C210F5F00637DFC /* TFCourseraTests.m */; };
 		89D5C9D11C210F5F00637DFC /* TFCourseraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9D01C210F5F00637DFC /* TFCourseraUITests.m */; };
 		89D5C9E01C21320900637DFC /* SortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9DF1C21320900637DFC /* SortController.m */; };
+		89D5C9E41C21443000637DFC /* HopperHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9E31C21443000637DFC /* HopperHeaderView.m */; };
+		89D5C9E71C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9E61C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m */; };
+		89D5C9EA1C2144C700637DFC /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9E91C2144C700637DFC /* CollectionViewCell.m */; };
+		89D5C9EE1C21451100637DFC /* WaterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9EC1C21451100637DFC /* WaterCell.m */; };
+		89D5C9EF1C21451100637DFC /* WaterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D5C9ED1C21451100637DFC /* WaterCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,15 @@
 		89D5C9D21C210F5F00637DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89D5C9DE1C21320900637DFC /* SortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortController.h; sourceTree = "<group>"; };
 		89D5C9DF1C21320900637DFC /* SortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortController.m; sourceTree = "<group>"; };
+		89D5C9E21C21443000637DFC /* HopperHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopperHeaderView.h; sourceTree = "<group>"; };
+		89D5C9E31C21443000637DFC /* HopperHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopperHeaderView.m; sourceTree = "<group>"; };
+		89D5C9E51C21444F00637DFC /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		89D5C9E61C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
+		89D5C9E81C2144C700637DFC /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		89D5C9E91C2144C700637DFC /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		89D5C9EB1C21451100637DFC /* WaterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterCell.h; sourceTree = "<group>"; };
+		89D5C9EC1C21451100637DFC /* WaterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterCell.m; sourceTree = "<group>"; };
+		89D5C9ED1C21451100637DFC /* WaterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +122,7 @@
 				89D5C9AF1C210F5F00637DFC /* AppDelegate.m */,
 				89D5C9B11C210F5F00637DFC /* ViewController.h */,
 				89D5C9B21C210F5F00637DFC /* ViewController.m */,
+				89D5C9E11C21442600637DFC /* Hopper */,
 				89D5C9DE1C21320900637DFC /* SortController.h */,
 				89D5C9DF1C21320900637DFC /* SortController.m */,
 				89D5C9B41C210F5F00637DFC /* Main.storyboard */,
@@ -143,6 +158,22 @@
 				89D5C9D21C210F5F00637DFC /* Info.plist */,
 			);
 			path = TFCourseraUITests;
+			sourceTree = "<group>";
+		};
+		89D5C9E11C21442600637DFC /* Hopper */ = {
+			isa = PBXGroup;
+			children = (
+				89D5C9EB1C21451100637DFC /* WaterCell.h */,
+				89D5C9EC1C21451100637DFC /* WaterCell.m */,
+				89D5C9ED1C21451100637DFC /* WaterCell.xib */,
+				89D5C9E51C21444F00637DFC /* UICollectionViewLeftAlignedLayout.h */,
+				89D5C9E61C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m */,
+				89D5C9E21C21443000637DFC /* HopperHeaderView.h */,
+				89D5C9E31C21443000637DFC /* HopperHeaderView.m */,
+				89D5C9E81C2144C700637DFC /* CollectionViewCell.h */,
+				89D5C9E91C2144C700637DFC /* CollectionViewCell.m */,
+			);
+			path = Hopper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89D5C9BB1C210F5F00637DFC /* LaunchScreen.storyboard in Resources */,
+				89D5C9EF1C21451100637DFC /* WaterCell.xib in Resources */,
 				89D5C9B81C210F5F00637DFC /* Assets.xcassets in Resources */,
 				89D5C9B61C210F5F00637DFC /* Main.storyboard in Resources */,
 			);
@@ -275,9 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D5C9E41C21443000637DFC /* HopperHeaderView.m in Sources */,
+				89D5C9EE1C21451100637DFC /* WaterCell.m in Sources */,
 				89D5C9B31C210F5F00637DFC /* ViewController.m in Sources */,
 				89D5C9B01C210F5F00637DFC /* AppDelegate.m in Sources */,
 				89D5C9AD1C210F5F00637DFC /* main.m in Sources */,
+				89D5C9E71C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m in Sources */,
+				89D5C9EA1C2144C700637DFC /* CollectionViewCell.m in Sources */,
 				89D5C9E01C21320900637DFC /* SortController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

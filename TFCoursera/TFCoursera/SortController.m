@@ -9,7 +9,6 @@
 #import "SortController.h"
 
 #import "WaterCell.h"
-#import "MovieDetailViewController.h"
 #import "MovieSearchApi.h"
 #import "SearchResultModel.h"
 #import "HopperView.h"
