@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="PRW-PY-gvo">
             <objects>
                 <tableViewController id="WMS-1i-tEB" sceneMemberID="viewController">
@@ -29,12 +29,23 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="I3e-oZ-ehM"/>
+                    <navigationItem key="navigationItem" title="Title" id="aIq-kR-nqG">
+                        <barButtonItem key="rightBarButtonItem" title="类别" style="plain" id="XoJ-Kk-BqD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HJ8-x2-TjO">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="类别"/>
+                                <connections>
+                                    <segue destination="aFA-e6-CoE" kind="push" id="Uxh-GV-zJ6"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eJ-Yg-RYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20" y="315"/>
+            <point key="canvasLocation" x="-52" y="220"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xfZ-Dv-S0Q">
@@ -49,10 +60,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aWU-4T-Ygs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qi7-Ko-v1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="401" y="340"/>
+            <point key="canvasLocation" x="395" y="220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TA8-19-oMR">
