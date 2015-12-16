@@ -7,8 +7,8 @@
 //
 
 #import "WaterCell.h"
-#import "MovieHome.h"
-#import "SearchResultModel.h"
+//#import "MovieHome.h"
+//#import "SearchResultModel.h"
 
 @interface WaterCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -27,18 +27,18 @@
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
-- (void)setModel:(MovieHome *)model
-{
-    _model = model;
-    
-    [self.imageView sd_setImageWithURL:URL(model.cover) placeholderImage:placeholderImg];
-
-    self.titleLabel.text = model.title;
-    self.subtTtleLabel.text = [NSString stringWithFormat:@"更新至第%d集",model.upInfo];
-    
-    self.markImg.hidden = YES;
-    self.markImg.image = nil;
-}
+//- (void)setModel:(MovieHome *)model
+//{
+//    _model = model;
+//    
+//    [self.imageView sd_setImageWithURL:URL(model.cover) placeholderImage:placeholderImg];
+//
+//    self.titleLabel.text = model.title;
+//    self.subtTtleLabel.text = [NSString stringWithFormat:@"更新至第%d集",model.upInfo];
+//    
+//    self.markImg.hidden = YES;
+//    self.markImg.image = nil;
+//}
 
 - (void)layoutSubviews
 {

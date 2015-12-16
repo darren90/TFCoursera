@@ -68,10 +68,8 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.rightBtn.hidden = YES;
-    self.navImage.backgroundColor = [UIColor blackColor];
-    self.urlDomain = @"全部";
-    self.titleLabel.text = @"全部分类";
+ 
+    self.title = @"全部分类";
     
     int row = self.mainArray.count % KRowCount  == 0 ? self.mainArray.count / KRowCount : self.mainArray.count / KRowCount + 1;
     
@@ -92,7 +90,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
     self.waterView = waterView;
     
     float ratio = 1.3 ;//宽高比 420.0
-    int imgW = (Main_Screen_Width - 2*(10+7)) / 3;
+    int imgW = (self.view.frame.size.width - 2*(10+7)) / 3;
     int imgH = ratio * imgW + 47;
     
     flowLayout.itemSize = CGSizeMake(imgW, imgH);
@@ -100,33 +98,18 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
     flowLayout.minimumInteritemSpacing = 7;
     //flowLayout.headerReferenceSize = CGSizeMake(10, 10);
     flowLayout.sectionInset = UIEdgeInsetsMake(40/3, 10, 10, 10);
-    
-    [self.gifImageView startAnimating];
-    self.reminderLabel.text = REMINDTEXT1;
-    [waterView addSubview:self.gifImageView];
-    
-    CGRect gifRect = self.gifImageView.frame;
-    gifRect.origin.y -= 64;
-    self.gifImageView.frame = gifRect;
-    
+   
     //第一次请求
     self.page = 1;
     self.isRefreshing = YES;
     [self requestData];
     
     __weak __typeof(self) weakSelf = self;
-    //1：头部刷新
-    //    self.waterView.header = [MJDIYHeader headerWithRefreshingBlock:^{
-    //        self.page = 1 ;
-    //        weakSelf.isRefreshing = YES;
-    //        [weakSelf requestData];
-    //    }];
-    
-    //2：尾部刷新
-    self.waterView.footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
-        self.page ++;
-        [weakSelf requestData];
-    }];
+      //2：尾部刷新
+//    self.waterView.footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
+//        self.page ++;
+//        [weakSelf requestData];
+//    }];
 }
 
 -(void)initHopperSelectView
@@ -167,9 +150,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 {
     self.hopperSelBtn.selectTitle = text;
     [self.headerView reloadView];
-    
-    //    [self.waterView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    //    [self.waterView reloadData];
+ 
 }
 #pragma mark - HopperHeaderView的代理，选择好item后的代理 -- 上面的会调用这个方法
 -(void)HopperHeaderViewItemDidSelect:(NSString *)text index:(NSInteger)index
@@ -193,72 +174,18 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
     [self.waterView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
 }
 
+-(void)requestData
+{
+
+}
+
 -(void)requestDataWithText:(NSString *)text
 {
-    __weak __typeof (self)weakSelf = self;
-    if ([text isEqualToString:@"全部"]) {
-        text = @"";
-    }
-    MovieSearchApi *homePage = [[MovieSearchApi alloc]initWithCat:text page:self.page];
-    [homePage startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        NSDictionary *dic = request.responseJSONObject;
-        if (dic) {
-            JsonModel * json = [JsonModel objectWithKeyValues:dic];
-            if (json.code == SUCCESSCODE) {
-                [weakSelf stopFresh];
-                
-                [weakSelf.gifImageView removeFromSuperview];
-                [weakSelf.reminderLabel removeFromSuperview];
-                
-                [weakSelf getSuccessData:json.data[@"results"]];
-            }
-        }else{
-            [weakSelf stopFresh];
-            [weakSelf.reminderLabel setText:REMINDTEXT3];
-            [IanAlert alertError:ERRORMSG1 length:TIMELENGTH];
-        }
-    } failure:^(YTKBaseRequest *request) {
-        [weakSelf stopFresh];
-        [weakSelf.reminderLabel setText:REMINDTEXT2];
-        [IanAlert alertError:ERRORMSG2 length:TIMELENGTH];
-    }];
-    
+    NSLog(@"---:search text:%@",text);
 }
 
-- (void)requestData
-{
-    if ([self.urlDomain isEqualToString:@"全部"]) {
-        self.urlDomain = @"";
-    }
-    [self requestDataWithText:self.urlDomain];
-}
 
-- (void)stopFresh
-{
-    [self.waterView.footer endRefreshing];
-    [self.waterView.header endRefreshing];
-    //self.waterView.header.hidden = YES;
-    self.waterView.footer.hidden = YES;
-    [self.gifImageView stopAnimating];
-}
 
-- (void)getSuccessData:(id)json
-{
-    NSArray *dictArray = [SearchResultModel objectArrayWithKeyValuesArray:json];
-    
-    if (self.isRefreshing) {
-        [self.dataArray removeAllObjects];
-        self.isRefreshing = NO;
-        [self.waterView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    }
-    [self.dataArray addObjectsFromArray:dictArray];
-    //    [self.waterView reloadData];
-    [self.waterView reloadData];
-    
-    [self initHopperSelectView];
-    [self initHopperView];
-    [self.view bringSubviewToFront:self.navImage];
-}
 
 #pragma  - mark 视频搜索界面
 - (void)rightBtnClick
@@ -299,12 +226,12 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    SearchResultModel *model = self.dataArray[indexPath.item];
-    MovieDetailViewController *detailVc = [[MovieDetailViewController alloc]init];
-    detailVc.seasonId = model.ID;
-    detailVc.topTitle = model.title;
-    self.navigationController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detailVc animated:YES];
+//    SearchResultModel *model = self.dataArray[indexPath.item];
+//    MovieDetailViewController *detailVc = [[MovieDetailViewController alloc]init];
+//    detailVc.seasonId = model.ID;
+//    detailVc.topTitle = model.title;
+//    self.navigationController.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:detailVc animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout
@@ -361,3 +288,4 @@ referenceSizeForHeaderInSection:(NSInteger)section
     }
     return _mainArray;
 }
+@end

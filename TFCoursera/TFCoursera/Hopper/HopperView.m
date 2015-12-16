@@ -1,12 +1,12 @@
 //
-//  HopperHeaderView.m
+//  HopperView.m
 //  PUClient
 //
 //  Created by Fengtf on 15/12/2.
 //  Copyright © 2015年 RRLhy. All rights reserved.
 //
 
-#import "HopperHeaderView.h"
+#import "HopperView.h"
 #import "UICollectionViewLeftAlignedLayout.h"
 #import "CollectionViewCell.h"
 #import "HopperModel.h"
@@ -29,25 +29,25 @@ static NSString * const kHeaderViewCellIdentifier = @"HeaderViewCellIdentifier";
 typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
 
 
-@interface HopperHeaderView ()<UICollectionViewDelegate,UICollectionViewDataSource>
-//@property (nonatomic,strong)NSMutableArray * mainArray;
+@interface HopperView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic,weak)ItemButton * selectBtn;
 
 @end
 
-@implementation HopperHeaderView
+@implementation HopperView
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.9];
-        
+
         [self addCollectionView];
     }
     return self;
 }
+
 
 - (void)addCollectionView {
     CGRect collectionViewFrame = CGRectMake(0, kControllerHeaderViewHeight + kControllerHeaderToCollectionViewMargin, [UIScreen mainScreen].bounds.size.width,
@@ -61,14 +61,13 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     [self.collectionView registerClass:[CollectionViewCell class]
             forCellWithReuseIdentifier:kCellIdentifier];
     self.collectionView.allowsMultipleSelection = YES;
+//    [self.collectionView registerClass:[CYLFilterHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderViewCellIdentifier];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.contentInset = UIEdgeInsetsMake(15, 0, 0, 0);
     self.collectionView.scrollsToTop = NO;
     self.collectionView.scrollEnabled = NO;
     [self addSubview:self.collectionView];
-    [self.collectionView reloadData];
-    
 }
 
 -(void)layoutSubviews
@@ -76,6 +75,7 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     [super layoutSubviews];
     
     self.collectionView.frame = self.bounds;
+    [self.collectionView reloadData];
 }
 
 -(void)setMainArray:(NSArray *)mainArray
@@ -90,13 +90,35 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     [self.collectionView reloadData];
 }
 
+//#pragma mark - 🔌 UICollectionViewDataSource Method
+//
+//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+//{
+//    return [self.mainArray count];
+//}
 
-#pragma mark - 🔌 UICollectionViewDataSource Method
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return self.mainArray.count;
+//    NSArray *symptoms = [NSArray arrayWithArray:[self.dataSource[section] objectForKey:kDataSourceSectionKey]];
+//    for (NSNumber *i in self.expandSectionArray) {
+//        if (section == [i integerValue]) {
+//            return [symptoms count];
+//        }
+//    }
+//    return [self.firstRowCellCountArray[section] integerValue];
+      return [self.mainArray count];
 }
+
+//- (BOOL)shouldCollectionCellPictureShowWithIndex:(NSIndexPath *)indexPath {
+//    NSMutableArray *symptoms = [NSMutableArray arrayWithArray:[self.mainArray[indexPath.section] objectForKey:kDataSourceSectionKey]];
+//    NSString *picture = [symptoms[indexPath.row] objectForKey:kDataSourceCellPictureKey];
+//    NSUInteger pictureLength = [@(picture.length) integerValue];
+//    if(pictureLength > 0) {
+//        return YES;
+//    }
+//    return NO;
+//}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -104,9 +126,17 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     CollectionViewCell *cell =
     (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier
                                                                     forIndexPath:indexPath];
+    cell.button.frame = CGRectMake(0, 0, CGRectGetWidth(cell.frame), CGRectGetHeight(cell.frame));
+//    NSMutableArray *symptoms = [NSMutableArray arrayWithArray:[self.mainArray[indexPath.section]
+//                                                               objectForKey:kDataSourceSectionKey]];
+//    NSString *text = self.mainArray[indexPath.item];
     HopperModel *model = self.mainArray[indexPath.item];
     NSString *text = model.title;
+    
+    //[symptoms[indexPath.row] objectForKey:kDataSourceCellTextKey];
     cell.title = text;
+//    [cell.button addTarget:self action:@selector(itemButtonClicked:)
+//          forControlEvents:UIControlEventTouchUpInside];
     [cell.button addTarget:self action:@selector(itemButtonClicked:)
           forControlEvents:UIControlEventTouchDown];
     cell.button.section = indexPath.section;
@@ -119,6 +149,7 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
 
 #pragma mark - 🎬 Actions Method
 - (void)itemButtonClicked:(ItemButton *)button {
+    NSLog(@"but--sel-:%p",button);
     self.selectBtn.selected = NO;
     self.selectBtn = button;
     button.selected = YES;
@@ -126,29 +157,93 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     [self collectionView:self.collectionView didSelectItemAtIndexPath:indexPath];
 }
 
+-(void)refreshHooper:(NSInteger)index
+{
+    NSIndexPath *path = [NSIndexPath indexPathForItem:index inSection:0];
+//    NSInteger oldItem = 0;
+//    if (self.selectBtn) {
+//        oldItem = self.selectBtn.row;
+//    }
+//    NSIndexPath *oldPath = [NSIndexPath indexPathForItem:oldItem inSection:0];
+    for (HopperModel *m in self.mainArray) {
+        m.isSelect = NO;
+    }
+    HopperModel *newModel = self.mainArray[index];
+    newModel.isSelect = YES;
+ 
+    CollectionViewCell *cell = (CollectionViewCell *)[self.collectionView cellForItemAtIndexPath:path];
+    self.selectBtn.selected = NO;
+    cell.button.selected = YES;
+    self.selectBtn = cell.button;
+    
+    NSLog(@"-rrrr-bb0-tt:%@--",cell.title);
+}
+
 #pragma mark - 🔌 UICollectionViewDelegate Method
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    NSString *text = self.mainArray[indexPath.item];
     HopperModel *model = self.mainArray[indexPath.item];
     NSString *text = model.title;
+     NSLog(@"-item-sele:%@",text);
     for (HopperModel *m in self.mainArray) {
         m.isSelect = NO;
     }
     model.isSelect = YES;
-//    NSLog(@"-header-item-sele:%@",text);
     
-    if ([self.delegate respondsToSelector:@selector(HopperHeaderViewItemDidSelect:index:)]) {
-        [self.delegate HopperHeaderViewItemDidSelect:text index:indexPath.item];
+    if ([self.delegate respondsToSelector:@selector(HopperViewItemDidSelect:)]) {
+        [self.delegate HopperViewItemDidSelect:text];
     }
 }
 
-//- (BOOL)shouldCollectionCellPictureShowWithIndex:(NSIndexPath *)indexPath {
-//    NSMutableArray *symptoms = [NSMutableArray arrayWithArray:[self.mainArray[indexPath.section] objectForKey:kDataSourceSectionKey]];
-//    NSString *picture = [symptoms[indexPath.row] objectForKey:kDataSourceCellPictureKey];
-//    NSUInteger pictureLength = [@(picture.length) integerValue];
-//    if(pictureLength > 0) {
-//        return YES;
+-(void)setSelectIndex:(NSInteger)selectIndex
+{
+    _selectIndex = selectIndex;
+    
+    NSIndexPath *path = [NSIndexPath indexPathForItem:selectIndex inSection:0];
+    CollectionViewCell *cell = (CollectionViewCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:path];
+    NSLog(@"-sel-bb0-tt:%@",cell.title);
+    [self itemButtonClicked:cell.button];
+//    [self.collectionView reloadItemsAtIndexPaths:@[path]];
+}
+
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    //二级菜单数组
+//    NSArray *symptoms = [NSArray arrayWithArray:[self.mainArray[indexPath.section]
+//                                                 objectForKey:kDataSourceSectionKey]];
+//    NSString *sectionTitle = [self.dataSource[indexPath.section] objectForKey:@"Type"];
+//    BOOL shouldShowPic = [self shouldCollectionCellPictureShowWithIndex:indexPath];
+//    NSString *cellTitle = [symptoms[indexPath.row] objectForKey:kDataSourceCellTextKey];
+//    NSString *message = shouldShowPic?[NSString stringWithFormat:@"★%@",cellTitle]:cellTitle;
+//    
+//    NSLog(@"-item-sele:%@-%@",sectionTitle,message);
+//}
+
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+//           viewForSupplementaryElementOfKind:(NSString *)kind
+//                                 atIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([kind isEqual:UICollectionElementKindSectionHeader]) {
+//        CYLFilterHeaderView *filterHeaderView =
+//        [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+//                                           withReuseIdentifier:kHeaderViewCellIdentifier
+//                                                  forIndexPath:indexPath];
+//        filterHeaderView.moreButton.hidden =
+//        
+//        filterHeaderView.delegate = self;
+//        NSString *sectionTitle = [self.dataSource[indexPath.section] objectForKey:@"Type"];
+//        filterHeaderView.titleButton.tag = indexPath.section;
+//        filterHeaderView.moreButton.tag = indexPath.section;
+//        filterHeaderView.moreButton.selected = NO;
+//        [filterHeaderView.titleButton setTitle:sectionTitle forState:UIControlStateNormal];
+//        [filterHeaderView.titleButton setTitle:sectionTitle forState:UIControlStateSelected];
+//        for (NSNumber *i in self.expandSectionArray) {
+//            if (indexPath.section == [i integerValue]) {
+//                filterHeaderView.moreButton.selected = YES;
+//            }
+//        }
+//        return (UICollectionReusableView *)filterHeaderView;
 //    }
-//    return NO;
+//    return nil;
 //}
 
 #pragma mark - 🔌 UICollectionViewDelegateLeftAlignedLayout Method
@@ -219,23 +314,23 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     return cellWidth;
 }
 
-
 //-(NSMutableArray *)mainArray
 //{
 //    if (_mainArray == nil) {
 //        _mainArray = [NSMutableArray array];
-//        HopperModel *m1 = [HopperModel hopperWithTitle:@"全部" isSelect:YES];
-//        HopperModel *m2 = [HopperModel hopperWithTitle:@"喜剧" isSelect:NO];
-//        HopperModel *m3 = [HopperModel hopperWithTitle:@"动作" isSelect:NO];
-//        HopperModel *m4 = [HopperModel hopperWithTitle:@"科幻" isSelect:NO];
-//        HopperModel *m5 = [HopperModel hopperWithTitle:@"恐怖" isSelect:NO];
-//        HopperModel *m6 = [HopperModel hopperWithTitle:@"剧情" isSelect:NO];
-//        HopperModel *m7 = [HopperModel hopperWithTitle:@"罪案" isSelect:NO];
-//        HopperModel *m8 = [HopperModel hopperWithTitle:@"冒险" isSelect:NO];
-//        HopperModel *m9 = [HopperModel hopperWithTitle:@"悬疑" isSelect:NO];
-//        [_mainArray addObjectsFromArray: @[m1,m2,m3,m4,m5,m6,m7,m8,m9]];
+//        [_mainArray addObject:@"全部"];
+//        [_mainArray addObject:@"喜剧"];
+//        [_mainArray addObject:@"动作"];
+//        [_mainArray addObject:@"科幻"];
+//        [_mainArray addObject:@"魔幻"];
+//        [_mainArray addObject:@"恐怖"];
+//        [_mainArray addObject:@"剧情"];
+//        [_mainArray addObject:@"罪案"];
+//        [_mainArray addObject:@"冒险"];
+//        [_mainArray addObject:@"悬疑"];
 //    }
 //    return _mainArray;
 //}
+
 
 @end

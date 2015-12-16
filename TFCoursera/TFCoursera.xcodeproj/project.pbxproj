@@ -21,6 +21,10 @@
 		89D5C9EA1C2144C700637DFC /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9E91C2144C700637DFC /* CollectionViewCell.m */; };
 		89D5C9EE1C21451100637DFC /* WaterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9EC1C21451100637DFC /* WaterCell.m */; };
 		89D5C9EF1C21451100637DFC /* WaterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D5C9ED1C21451100637DFC /* WaterCell.xib */; };
+		89D5C9F61C214CC400637DFC /* HopperSelBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9F11C214CC400637DFC /* HopperSelBtn.m */; };
+		89D5C9F71C214CC400637DFC /* HopperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9F31C214CC400637DFC /* HopperView.m */; };
+		89D5C9F81C214CC400637DFC /* ItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9F51C214CC400637DFC /* ItemButton.m */; };
+		89D5C9FB1C214D8500637DFC /* HopperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9FA1C214D8500637DFC /* HopperModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,14 @@
 		89D5C9EB1C21451100637DFC /* WaterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterCell.h; sourceTree = "<group>"; };
 		89D5C9EC1C21451100637DFC /* WaterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterCell.m; sourceTree = "<group>"; };
 		89D5C9ED1C21451100637DFC /* WaterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterCell.xib; sourceTree = "<group>"; };
+		89D5C9F01C214CC400637DFC /* HopperSelBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopperSelBtn.h; sourceTree = "<group>"; };
+		89D5C9F11C214CC400637DFC /* HopperSelBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopperSelBtn.m; sourceTree = "<group>"; };
+		89D5C9F21C214CC400637DFC /* HopperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopperView.h; sourceTree = "<group>"; };
+		89D5C9F31C214CC400637DFC /* HopperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopperView.m; sourceTree = "<group>"; };
+		89D5C9F41C214CC400637DFC /* ItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemButton.h; sourceTree = "<group>"; };
+		89D5C9F51C214CC400637DFC /* ItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemButton.m; sourceTree = "<group>"; };
+		89D5C9F91C214D8500637DFC /* HopperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopperModel.h; sourceTree = "<group>"; };
+		89D5C9FA1C214D8500637DFC /* HopperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopperModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +175,16 @@
 		89D5C9E11C21442600637DFC /* Hopper */ = {
 			isa = PBXGroup;
 			children = (
+				89D5C9F91C214D8500637DFC /* HopperModel.h */,
+				89D5C9FA1C214D8500637DFC /* HopperModel.m */,
 				89D5C9E51C21444F00637DFC /* UICollectionViewLeftAlignedLayout.h */,
 				89D5C9E61C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m */,
+				89D5C9F01C214CC400637DFC /* HopperSelBtn.h */,
+				89D5C9F11C214CC400637DFC /* HopperSelBtn.m */,
+				89D5C9F21C214CC400637DFC /* HopperView.h */,
+				89D5C9F31C214CC400637DFC /* HopperView.m */,
+				89D5C9F41C214CC400637DFC /* ItemButton.h */,
+				89D5C9F51C214CC400637DFC /* ItemButton.m */,
 				89D5C9EB1C21451100637DFC /* WaterCell.h */,
 				89D5C9EC1C21451100637DFC /* WaterCell.m */,
 				89D5C9ED1C21451100637DFC /* WaterCell.xib */,
@@ -309,11 +329,15 @@
 			files = (
 				89D5C9E41C21443000637DFC /* HopperHeaderView.m in Sources */,
 				89D5C9EE1C21451100637DFC /* WaterCell.m in Sources */,
+				89D5C9F71C214CC400637DFC /* HopperView.m in Sources */,
+				89D5C9FB1C214D8500637DFC /* HopperModel.m in Sources */,
 				89D5C9B31C210F5F00637DFC /* ViewController.m in Sources */,
 				89D5C9B01C210F5F00637DFC /* AppDelegate.m in Sources */,
 				89D5C9AD1C210F5F00637DFC /* main.m in Sources */,
+				89D5C9F61C214CC400637DFC /* HopperSelBtn.m in Sources */,
 				89D5C9E71C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				89D5C9EA1C2144C700637DFC /* CollectionViewCell.m in Sources */,
+				89D5C9F81C214CC400637DFC /* ItemButton.m in Sources */,
 				89D5C9E01C21320900637DFC /* SortController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
