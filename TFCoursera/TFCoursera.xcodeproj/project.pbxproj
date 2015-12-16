@@ -15,6 +15,7 @@
 		89D5C9BB1C210F5F00637DFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89D5C9B91C210F5F00637DFC /* LaunchScreen.storyboard */; };
 		89D5C9C61C210F5F00637DFC /* TFCourseraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9C51C210F5F00637DFC /* TFCourseraTests.m */; };
 		89D5C9D11C210F5F00637DFC /* TFCourseraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9D01C210F5F00637DFC /* TFCourseraUITests.m */; };
+		89D5C9E01C21320900637DFC /* SortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9DF1C21320900637DFC /* SortController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		89D5C9CC1C210F5F00637DFC /* TFCourseraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TFCourseraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D5C9D01C210F5F00637DFC /* TFCourseraUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFCourseraUITests.m; sourceTree = "<group>"; };
 		89D5C9D21C210F5F00637DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89D5C9DE1C21320900637DFC /* SortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortController.h; sourceTree = "<group>"; };
+		89D5C9DF1C21320900637DFC /* SortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				89D5C9AF1C210F5F00637DFC /* AppDelegate.m */,
 				89D5C9B11C210F5F00637DFC /* ViewController.h */,
 				89D5C9B21C210F5F00637DFC /* ViewController.m */,
+				89D5C9DE1C21320900637DFC /* SortController.h */,
+				89D5C9DF1C21320900637DFC /* SortController.m */,
 				89D5C9B41C210F5F00637DFC /* Main.storyboard */,
 				89D5C9B71C210F5F00637DFC /* Assets.xcassets */,
 				89D5C9B91C210F5F00637DFC /* LaunchScreen.storyboard */,
@@ -273,6 +278,7 @@
 				89D5C9B31C210F5F00637DFC /* ViewController.m in Sources */,
 				89D5C9B01C210F5F00637DFC /* AppDelegate.m in Sources */,
 				89D5C9AD1C210F5F00637DFC /* main.m in Sources */,
+				89D5C9E01C21320900637DFC /* SortController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

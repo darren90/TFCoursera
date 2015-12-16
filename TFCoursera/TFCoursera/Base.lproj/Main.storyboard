@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="-52" y="220"/>
         </scene>
-        <!--View Controller-->
+        <!--类别界面-->
         <scene sceneID="xfZ-Dv-S0Q">
             <objects>
                 <viewController id="aFA-e6-CoE" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aWU-4T-Ygs"/>
+                    <navigationItem key="navigationItem" title="类别界面" id="aWU-4T-Ygs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qi7-Ko-v1D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
