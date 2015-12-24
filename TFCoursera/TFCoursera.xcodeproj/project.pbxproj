@@ -25,6 +25,7 @@
 		89D5C9F71C214CC400637DFC /* HopperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9F31C214CC400637DFC /* HopperView.m */; };
 		89D5C9F81C214CC400637DFC /* ItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9F51C214CC400637DFC /* ItemButton.m */; };
 		89D5C9FB1C214D8500637DFC /* HopperModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9FA1C214D8500637DFC /* HopperModel.m */; };
+		FED13F071C2C306100C0550D /* coursera.json in Resources */ = {isa = PBXBuildFile; fileRef = FED13F061C2C306100C0550D /* coursera.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		89D5C9F51C214CC400637DFC /* ItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemButton.m; sourceTree = "<group>"; };
 		89D5C9F91C214D8500637DFC /* HopperModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopperModel.h; sourceTree = "<group>"; };
 		89D5C9FA1C214D8500637DFC /* HopperModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopperModel.m; sourceTree = "<group>"; };
+		FED13F061C2C306100C0550D /* coursera.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coursera.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				89D5C9E11C21442600637DFC /* Hopper */,
 				89D5C9DE1C21320900637DFC /* SortController.h */,
 				89D5C9DF1C21320900637DFC /* SortController.m */,
+				FED13F061C2C306100C0550D /* coursera.json */,
 				89D5C9B41C210F5F00637DFC /* Main.storyboard */,
 				89D5C9B71C210F5F00637DFC /* Assets.xcassets */,
 				89D5C9B91C210F5F00637DFC /* LaunchScreen.storyboard */,
@@ -303,6 +306,7 @@
 				89D5C9EF1C21451100637DFC /* WaterCell.xib in Resources */,
 				89D5C9B81C210F5F00637DFC /* Assets.xcassets in Resources */,
 				89D5C9B61C210F5F00637DFC /* Main.storyboard in Resources */,
+				FED13F071C2C306100C0550D /* coursera.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
