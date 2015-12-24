@@ -167,8 +167,8 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
         [self requestDataWithText:text];
     }
     
-    //    [self.waterView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    //    [self.waterView reloadData];
+        [self.waterView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+        [self.waterView reloadData];
 }
 
 #pragma - mark 滚到顶部
