@@ -110,6 +110,9 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 //        self.page ++;
 //        [weakSelf requestData];
 //    }];
+    
+    [self initHopperSelectView];
+    [self initHopperView];
 }
 
 -(void)initHopperSelectView
@@ -195,13 +198,14 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.dataArray.count;
+    return 20;//self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     WaterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:IDENTTFIER forIndexPath:indexPath];
-    cell.searchModel = self.dataArray[indexPath.item];
+//    cell.searchModel = self.dataArray[indexPath.item];
+    cell.backgroundColor = [UIColor grayColor];
     return cell;
 }
 
