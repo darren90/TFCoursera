@@ -1,0 +1,32 @@
+{
+    "code":"0000",
+    "msg":"",
+    "data":{
+        "total":471,
+        "results":[
+                   {
+                   "seasonNo":1,
+                   "title":"芝加哥医院第一季",
+                   "score":8.2,
+                   "sid":"589",
+                   "cat":"剧情",
+                   "mark":"update",
+                   "enTitle":"Chicago Med",
+                   "cover":"http://img.rrmj.tv/video/20151118/o_1447859554187.jpg",
+                   "upInfo":4,
+                   "id":589
+                   },{
+                   "seasonNo":1,
+                   "title":"芝加哥医院第一季",
+                   "score":8.2,
+                   "sid":"589",
+                   "cat":"剧情",
+                   "mark":"update",
+                   "enTitle":"Chicago Med",
+                   "cover":"http://img.rrmj.tv/video/20151118/o_1447859554187.jpg",
+                   "upInfo":4,
+                   "id":589
+                   }],
+        "currentPage":1
+    }
+}

@@ -75,7 +75,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
     
     KHopperViewH = kCollectionViewCellHeight*row + (row - 1) *  + 20;
     
-    CGRect rect = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64);//减去顶部NavBar64，底部TabBar49
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);//减去顶部NavBar64，底部TabBar49
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc] init];
     self.flowLayout = flowLayout;
     UICollectionView * waterView = [[UICollectionView alloc]initWithFrame:rect collectionViewLayout:flowLayout];
@@ -187,9 +187,6 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
     NSLog(@"---:search text:%@",text);
 }
 
-
-
-
 #pragma  - mark 视频搜索界面
 - (void)rightBtnClick
 {
@@ -230,12 +227,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    SearchResultModel *model = self.dataArray[indexPath.item];
-//    MovieDetailViewController *detailVc = [[MovieDetailViewController alloc]init];
-//    detailVc.seasonId = model.ID;
-//    detailVc.topTitle = model.title;
-//    self.navigationController.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:detailVc animated:YES];
+ 
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout
