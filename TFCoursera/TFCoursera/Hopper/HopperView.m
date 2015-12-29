@@ -61,7 +61,7 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     [self.collectionView registerClass:[CollectionViewCell class]
             forCellWithReuseIdentifier:kCellIdentifier];
     self.collectionView.allowsMultipleSelection = YES;
-//    [self.collectionView registerClass:[CYLFilterHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderViewCellIdentifier];
+ 
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.contentInset = UIEdgeInsetsMake(15, 0, 0, 0);
@@ -313,24 +313,6 @@ typedef void(^ISLimitWidth)(BOOL yesORNo,id data);
     isLimitWidth?isLimitWidth(NO,@(cellWidth)):nil;
     return cellWidth;
 }
-
-//-(NSMutableArray *)mainArray
-//{
-//    if (_mainArray == nil) {
-//        _mainArray = [NSMutableArray array];
-//        [_mainArray addObject:@"全部"];
-//        [_mainArray addObject:@"喜剧"];
-//        [_mainArray addObject:@"动作"];
-//        [_mainArray addObject:@"科幻"];
-//        [_mainArray addObject:@"魔幻"];
-//        [_mainArray addObject:@"恐怖"];
-//        [_mainArray addObject:@"剧情"];
-//        [_mainArray addObject:@"罪案"];
-//        [_mainArray addObject:@"冒险"];
-//        [_mainArray addObject:@"悬疑"];
-//    }
-//    return _mainArray;
-//}
-
+ 
 
 @end

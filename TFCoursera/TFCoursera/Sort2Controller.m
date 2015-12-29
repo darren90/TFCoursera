@@ -6,7 +6,7 @@
 //  Copyright © 2015年 ftf. All rights reserved.
 //
 
-#import "SortController.h"
+#import "Sort2Controller.h"
 
 #import "WaterCell.h"
 //#import "MovieSearchApi.h"
@@ -28,13 +28,11 @@ static float const KHopperSelectBtnH            = 40;
 static float const KAnimateDurationTime            = 0.5;
 
 
-@interface SortController ()<UICollectionViewDelegate,UICollectionViewDataSource,HopperViewDelegate,HopperHeaderViewDelegate>
+@interface Sort2Controller ()<UICollectionViewDelegate,UICollectionViewDataSource,HopperViewDelegate,HopperHeaderViewDelegate>
 
 @property (nonatomic,strong)NSMutableArray * dataArray;
 
 @property (nonatomic,weak)UICollectionView *waterView;
-
-@property (nonatomic,weak)UITableView * tableView;
 
 @property (nonatomic,assign)int page;
 
@@ -64,13 +62,13 @@ static float const KAnimateDurationTime            = 0.5;
 @property (nonatomic,assign)BOOL isData;
 @end
 
-@implementation SortController
+@implementation Sort2Controller
 static NSString *const IDENTTFIER = @"waterFlow";
 static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    
     self.title = @"全部分类";
     
     int row = self.mainArray.count % KRowCount  == 0 ? self.mainArray.count / KRowCount : self.mainArray.count / KRowCount + 1;
@@ -100,18 +98,18 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
     flowLayout.minimumInteritemSpacing = 7;
     //flowLayout.headerReferenceSize = CGSizeMake(10, 10);
     flowLayout.sectionInset = UIEdgeInsetsMake(40/3, 10, 10, 10);
-   
+    
     //第一次请求
     self.page = 1;
     self.isRefreshing = YES;
     [self requestData];
     
     __weak __typeof(self) weakSelf = self;
-      //2：尾部刷新
-//    self.waterView.footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
-//        self.page ++;
-//        [weakSelf requestData];
-//    }];
+    //2：尾部刷新
+    //    self.waterView.footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
+    //        self.page ++;
+    //        [weakSelf requestData];
+    //    }];
     
     [self initHopperSelectView];
     [self initHopperView];
@@ -155,7 +153,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 {
     self.hopperSelBtn.selectTitle = text;
     [self.headerView reloadView];
- 
+    
 }
 #pragma mark - HopperHeaderView的代理，选择好item后的代理 -- 上面的会调用这个方法
 -(void)HopperHeaderViewItemDidSelect:(NSString *)text index:(NSInteger)index
@@ -169,8 +167,8 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
         [self requestDataWithText:text];
     }
     
-        [self.waterView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-        [self.waterView reloadData];
+    [self.waterView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    [self.waterView reloadData];
 }
 
 #pragma - mark 滚到顶部
@@ -181,7 +179,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 
 -(void)requestData
 {
-
+    
 }
 
 -(void)requestDataWithText:(NSString *)text
@@ -203,7 +201,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     WaterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:IDENTTFIER forIndexPath:indexPath];
-//    cell.searchModel = self.dataArray[indexPath.item];
+    //    cell.searchModel = self.dataArray[indexPath.item];
     cell.backgroundColor = [UIColor grayColor];
     return cell;
 }
@@ -229,7 +227,7 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
- 
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout

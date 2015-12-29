@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8954341A1C2CF4F600891E9D /* Sort2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 895434191C2CF4F600891E9D /* Sort2Controller.m */; };
 		89D5C9AD1C210F5F00637DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9AC1C210F5F00637DFC /* main.m */; };
 		89D5C9B01C210F5F00637DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9AF1C210F5F00637DFC /* AppDelegate.m */; };
 		89D5C9B31C210F5F00637DFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D5C9B21C210F5F00637DFC /* ViewController.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		895434181C2CF4F600891E9D /* Sort2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sort2Controller.h; sourceTree = "<group>"; };
+		895434191C2CF4F600891E9D /* Sort2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sort2Controller.m; sourceTree = "<group>"; };
 		89D5C9A81C210F5F00637DFC /* TFCoursera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TFCoursera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D5C9AC1C210F5F00637DFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89D5C9AE1C210F5F00637DFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				89D5C9E11C21442600637DFC /* Hopper */,
 				89D5C9DE1C21320900637DFC /* SortController.h */,
 				89D5C9DF1C21320900637DFC /* SortController.m */,
+				895434181C2CF4F600891E9D /* Sort2Controller.h */,
+				895434191C2CF4F600891E9D /* Sort2Controller.m */,
 				FED13F061C2C306100C0550D /* coursera.json */,
 				FED13F081C2C377F00C0550D /* coursera_0.json */,
 				89D5C9B41C210F5F00637DFC /* Main.storyboard */,
@@ -181,10 +186,10 @@
 		89D5C9E11C21442600637DFC /* Hopper */ = {
 			isa = PBXGroup;
 			children = (
-				89D5C9F91C214D8500637DFC /* HopperModel.h */,
-				89D5C9FA1C214D8500637DFC /* HopperModel.m */,
 				89D5C9E51C21444F00637DFC /* UICollectionViewLeftAlignedLayout.h */,
 				89D5C9E61C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m */,
+				89D5C9F91C214D8500637DFC /* HopperModel.h */,
+				89D5C9FA1C214D8500637DFC /* HopperModel.m */,
 				89D5C9F01C214CC400637DFC /* HopperSelBtn.h */,
 				89D5C9F11C214CC400637DFC /* HopperSelBtn.m */,
 				89D5C9F21C214CC400637DFC /* HopperView.h */,
@@ -345,6 +350,7 @@
 				89D5C9F61C214CC400637DFC /* HopperSelBtn.m in Sources */,
 				89D5C9E71C21444F00637DFC /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				89D5C9EA1C2144C700637DFC /* CollectionViewCell.m in Sources */,
+				8954341A1C2CF4F600891E9D /* Sort2Controller.m in Sources */,
 				89D5C9F81C214CC400637DFC /* ItemButton.m in Sources */,
 				89D5C9E01C21320900637DFC /* SortController.m in Sources */,
 			);

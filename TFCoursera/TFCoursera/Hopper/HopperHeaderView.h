@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 @protocol HopperHeaderViewDelegate <NSObject>
 @optional
-//-(void)HopperHeaderViewItemDidSelect:(NSString *)text dataArray:(NSArray *)dataArray;
 -(void)HopperHeaderViewItemDidSelect:(NSString *)text index:(NSInteger)index;
 
 @end
