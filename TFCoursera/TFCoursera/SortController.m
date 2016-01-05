@@ -34,8 +34,6 @@ static float const KAnimateDurationTime            = 0.5;
 
 @property (nonatomic,weak)UICollectionView *waterView;
 
-@property (nonatomic,weak)UITableView * tableView;
-
 @property (nonatomic,assign)int page;
 
 @property (nonatomic,assign)BOOL isRefreshing;
@@ -105,13 +103,6 @@ static NSString *const HEADERIDENTTFIER = @"waterFlowheader";
     self.page = 1;
     self.isRefreshing = YES;
     [self requestData];
-    
-    __weak __typeof(self) weakSelf = self;
-      //2：尾部刷新
-//    self.waterView.footer = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
-//        self.page ++;
-//        [weakSelf requestData];
-//    }];
     
     [self initHopperSelectView];
     [self initHopperView];
